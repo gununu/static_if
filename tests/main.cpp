@@ -24,6 +24,7 @@ int main() {
         s<LAZY_VALUE(500)> y;
     } STATIC_ELSE {
         s<40> z;  
+        g<LAZY_TYPE(std::integral_constant<short, 0>)> a;
     } STATIC_ENDIF
     return 0;
 }
