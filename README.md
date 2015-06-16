@@ -1,5 +1,4 @@
-STATIC_IF library for C++14 (g++ 5.1.0 or clang++ 3.6.0)
-===
+###STATIC_IF library for C++14 (g++ 5.1.0 or clang++ 3.4.0)
 [![Build Status](https://travis-ci.org/gununu/static_if.svg)](https://travis-ci.org/gununu/static_if)
 
 copyright 2011-2015 (c) gununu

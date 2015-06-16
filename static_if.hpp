@@ -68,9 +68,9 @@ namespace gununu {
 #define STATIC_BREAKIF   do { return gununu::avoid_user_return(); } while(0); 
 
 #define STATIC_IF(e)     do { gununu::caller_true().call(gununu::bool_<(e)>(),  [&](auto _gununu_arg_)mutable->gununu::avoid_user_return{
-#define STATIC_ELSEIF(e)          STATIC_BREAKIF }).call(gununu::bool_<(e)>(),  [&](auto _gununu_arg_)mutable->gununu::avoid_user_return{
-#define STATIC_ELSE               STATIC_BREAKIF }).call(gununu::bool_<true>(), [&](auto _gununu_arg_)mutable->gununu::avoid_user_return{
-#define STATIC_ENDIF     STATIC_BREAKIF }); } while(0);
+#define STATIC_ELSEIF(e) STATIC_BREAKIF (void)_gununu_arg_;}).call(gununu::bool_<(e)>(),  [&](auto _gununu_arg_)mutable->gununu::avoid_user_return{
+#define STATIC_ELSE      STATIC_BREAKIF (void)_gununu_arg_;}).call(gununu::bool_<true>(), [&](auto _gununu_arg_)mutable->gununu::avoid_user_return{
+#define STATIC_ENDIF     STATIC_BREAKIF (void)_gununu_arg_;}); } while(0);
 
 #define LAZY_VALUE(v)   ((_gununu_arg_ != std::false_type{}) ? v : throw 0) 
 #define LAZY_TYPE(t)    typename std::conditional<_gununu_arg_ != std::false_type{}, t, void>::type
