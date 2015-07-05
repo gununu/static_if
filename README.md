@@ -10,6 +10,7 @@ Use, modification, and distribution is subject to the Boost Software License, Ve
 
 ###Usage
 Start with STATIC_IF and finish with STATIC_ENDIF.
+LAZY_VALUE and LAZY_TYPE are needed to get they dependent name.
  
 Can't use following statement in block.
 "return", "break", "continue" and "goto"
@@ -26,7 +27,7 @@ void func() {
     int a;
     const int N = 30; 
     STATIC_IF( N < 10 ) {     // (REQUIRED) if block
-        S<LAZY_VALUE(N)> v;   // (REQUIRED) LAZY_VALUE or LAZY_TYPE is needed to avoid S's static_assert on clang.
+        S<LAZY_VALUE(N)> v;   // (REQUIRED) LAZY_VALUE or LAZY_TYPE are needed to avoid S's static_assert on clang.
         v.foobar();
         N;                    // Note: g++ 4.9.2 can't use const local variables.
     } STATIC_ELSEIF( N==10 ) { //(optional) elseif block
